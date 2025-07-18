@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="page-wrapper">
+
+    <!-- Top Nav Bar -->
+    <nav class="top-nav">
+      <ul>
+        <li><a href="/" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+        <li><a href="/data" class="{% if request.path == '/data' %}active{% endif %}">Data</a></li>
+        <li><a href="/about" class="{% if request.path == '/about' %}active{% endif %}">About</a></li>
+      </ul>
+    </nav>
+
+    <!-- Optional Page Header -->
+    <header>
+      {% block header %}{% endblock %}
+    </header>
+
+    <!-- Main Page Content -->
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 Your Company Name. All rights reserved.</p>
+        <nav>
+          <a href="/">Home</a>
+          <a href="/data">Data</a>
+          <a href="/about">About</a>
+        </nav>
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>
+
+

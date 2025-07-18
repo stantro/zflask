@@ -14,3 +14,7 @@ build/
 *.egg-info/
 
 **/infrastructure*
+
+website/data/*
+
+**/test
