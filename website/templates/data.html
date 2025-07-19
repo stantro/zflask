@@ -11,14 +11,28 @@
     <table>
         <thead>
             <th>
-                Data Table
+                ID
             </th>
+            <th>
+                Subject
+            </>
+            <th>
+                Created
+            </>
         </thead>
         <tbody>
-            {% for data in var %}
+            {% for ticket in tickets %}
             <tr>
                 <td>
-                    {{ data}}
+                    <a href= {{ ticket['url'] }} >
+                        {{ ticket['zendesk_id'] }}
+                    </a>
+                </td>
+                <td>
+                    {{ ticket['subject'] }}
+                </td>
+                <td >
+                    {{ ticket['created_at'] }}
                 </td>
             </tr>
             {% endfor %}
