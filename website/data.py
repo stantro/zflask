@@ -20,6 +20,6 @@ def data():
     app = current_app._get_current_object()
     mongo = PyMongo(app, uri=f"{host}{database}")
 
-    tickets = mongo.db.tickets.find().sort("created_at", -1)
+    tickets = mongo.db.tickets.find({"subject":{"$ne":"SCRUBBED"}}).sort("zendesk_id", -1)
 
     return render_template('data.html', tickets=tickets)
